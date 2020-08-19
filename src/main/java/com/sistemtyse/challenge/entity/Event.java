@@ -21,6 +21,8 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Setter;
+import lombok.AccessLevel;
 
 @Data
 @EqualsAndHashCode(of = "id")
@@ -28,6 +30,7 @@ import lombok.EqualsAndHashCode;
 @EntityListeners(AuditingEntityListener.class)
 public class Event {
 
+	@Setter(AccessLevel.NONE)
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -48,8 +51,9 @@ public class Event {
 	@Size(max = 255)
 	private String system;
 
+	@Setter(AccessLevel.NONE)
 	@CreatedDate
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	@Column(name = "created_at")
 	private Date createdAt;
 	private Integer quantity;

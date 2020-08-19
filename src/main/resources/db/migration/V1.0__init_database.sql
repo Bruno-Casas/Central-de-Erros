@@ -6,6 +6,6 @@ CREATE TABLE event (
 	description VARCHAR(500),
 	log VARCHAR(255) UNIQUE NOT NULL,
 	system VARCHAR(255) NOT NULL,
-    created_at TIMESTAMP,
+    created_at date,
 	quantity integer
 );
